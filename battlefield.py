@@ -11,7 +11,7 @@ class Battlefield:
     
     def battle(self):
         current_attacker_dinosaur = True #placeholder, will change to user input later
-        while len(self.fleet.robot_list) > 0 or len(self.herd.dino_list) > 0:
+        while len(self.fleet.robot_list) > 0 and len(self.herd.dino_list) > 0:
             if current_attacker_dinosaur == True:
                 self.show_robot_opponent_options()
                 dinosaur_attacking = int(input('Please select index number of attacking dinosaur: '))
@@ -21,8 +21,7 @@ class Battlefield:
                     break
                 else:
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacked])
-                    
-                
+                           
             elif current_attacker_dinosaur == False:
                 self.show_dino_opponent_options()
                 robot_attacking = int(input('Please select index number of attacking robot: '))
@@ -33,8 +32,15 @@ class Battlefield:
                 else:
                     self.herd.dino_list.remove(self.herd.dino_list[dino_attacked])
                 
-            current_attacker_dinosaur = not current_attacker_dinosaur
-            
+            #currently blacked out for testing purposes
+            #current_attacker_dinosaur = not current_attacker_dinosaur
+         
+        if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0:
+            if len(self.fleet.robot_list) == 0:
+                self.display_winners('Dinosaur')
+            elif len(self.herd.dino_list) == 0:
+                self.display_winners('Robot')
+               
     def dino_turn(self, dinosaur_attacking, robot_attacked):
         dinosaur_attacking = self.herd.dino_list[dinosaur_attacking]
         robot_attacked = self.fleet.robot_list[robot_attacked]
@@ -51,5 +57,5 @@ class Battlefield:
     def show_robot_opponent_options(self):
         self.fleet.display_robot_fleet()
     
-    def display_winners(self):
-        pass
+    def display_winners(self, winning_team):
+        print(f'\nThe {winning_team} team has won the game.')

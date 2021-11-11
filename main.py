@@ -13,4 +13,5 @@ battlefield_one.show_dino_opponent_options()
 battlefield_one.show_robot_opponent_options()
 
 #battle configuration
+print('\nThis begins the battle...')
 battlefield_one.battle()
