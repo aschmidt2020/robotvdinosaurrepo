@@ -5,7 +5,7 @@ class Dinosaur:
         self.dino_health = 100
     
     def dino_attack(self, robot):
-        pass
+        robot.robot_health -= self.attack_power 
 
 #instantiated three dinos and added to list
 dino_list = [ ]
