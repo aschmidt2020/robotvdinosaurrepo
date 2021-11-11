@@ -11,7 +11,6 @@ class Herd:
         for dino in self.dino_list:
             print (f'Dinosaur Name: {dino.dino_name}, Dinosaur Health: {dino.dino_health}')
 
-#creating herd and displaying herd
+#creating herd
 dino_herd = Herd()
 dino_herd.create_dino_herd(dino_list)
-dino_herd.display_dino_herd()
