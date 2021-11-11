@@ -2,7 +2,7 @@ class Dinosaur:
     def __init__(self, dino_name, attack_power):
         self.dino_name = dino_name
         self.attack_power = attack_power
-        self.dino_health = 30
+        self.dino_health = 30  #TODO currently set to 30 for quick testing purposes
     
     def dino_attack(self, robot):
         robot.robot_health -= self.attack_power 

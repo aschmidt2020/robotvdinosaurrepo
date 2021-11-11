@@ -10,7 +10,7 @@ class Battlefield:
         print('\nWelcome to Robots versus Dinosaurs!')
     
     def battle(self):
-        current_attacker_dinosaur = True #placeholder, will change to user input later
+        current_attacker_dinosaur = True #TODO placeholder, will change to user input later
         while len(self.fleet.robot_list) > 0 and len(self.herd.dino_list) > 0:
             if current_attacker_dinosaur == True:
                 self.show_robot_opponent_options()
@@ -32,8 +32,8 @@ class Battlefield:
                 else:
                     self.herd.dino_list.remove(self.herd.dino_list[dino_attacked])
                 
-            #currently blacked out for testing purposes
-            #current_attacker_dinosaur = not current_attacker_dinosaur
+            #TODO currently blocked as comment for testing purposes
+            #TODO current_attacker_dinosaur = not current_attacker_dinosaur
          
         if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0:
             if len(self.fleet.robot_list) == 0:
