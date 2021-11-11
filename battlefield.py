@@ -13,24 +13,25 @@ class Battlefield:
         current_attacker_dinosaur = True #placeholder, will change to user input later
         while len(self.fleet.robot_list) > 0 or len(self.herd.dino_list) > 0:
             if current_attacker_dinosaur == True:
-                dinosaur_attacking = 0 #placeholder
-                robot_attacked = 0 #placeholder
+                self.show_robot_opponent_options()
+                dinosaur_attacking = int(input('Please select index number of attacking dinosaur: '))
+                robot_attacked = int(input('Please select index number of robot you would like to attack: '))
                 self.dino_turn(dinosaur_attacking, robot_attacked)
                 while self.fleet.robot_list[robot_attacked].robot_health > 0:
                     break
                 else:
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacked])
-                    #display options
+                    
                 
             elif current_attacker_dinosaur == False:
-                robot_attacking = 0 #placeholder
-                dino_attacked = 0 #placeholder
+                self.show_dino_opponent_options()
+                robot_attacking = int(input('Please select index number of attacking robot: '))
+                dino_attacked = int(input('Please select index number of dinosaur you would like to attack: '))
                 self.robot_turn(robot_attacking, dino_attacked)
                 while self.herd.dino_list[dino_attacked].dino_health > 0:
                     break
                 else:
                     self.herd.dino_list.remove(self.herd.dino_list[dino_attacked])
-                    #display options
                 
             current_attacker_dinosaur = not current_attacker_dinosaur
             

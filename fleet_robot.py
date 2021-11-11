@@ -8,8 +8,10 @@ class Fleet:
         self.robot_list.append(robot)
         
     def display_robot_fleet(self):
+        print('\n')
         for robot in self.robot_list:
-            print (f'Robot Name: {robot.robot_name}, Robot Health: {robot.robot_health}')
+            print (f'{self.robot_list.index(robot)} Robot Name: {robot.robot_name}, Robot Health: {robot.robot_health}')
+        print('\n')
 
 #instantiated three robots and added to list
 robot_one = Robot('Robot One', 'Basic Weapon One', 10)

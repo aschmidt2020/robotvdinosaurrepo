@@ -8,8 +8,11 @@ class Herd:
         self.dino_list.append(dinosaur)
     
     def display_dino_herd(self):
+        print('\n')
         for dino in self.dino_list:
-            print (f'Dinosaur Name: {dino.dino_name}, Dinosaur Health: {dino.dino_health}')
+            print (f'{self.dino_list.index(dino)} Dinosaur Name: {dino.dino_name}, Dinosaur Health: {dino.dino_health}')
+        print('\n')
+
 
 #instantiated three dinos and added to list
 dinosaur_one = Dinosaur('Dino One', 10)
