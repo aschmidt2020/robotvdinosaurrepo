@@ -22,4 +22,4 @@ robot_fleet.create_robot_fleet(robot_one)
 robot_fleet.create_robot_fleet(robot_two)
 robot_fleet.create_robot_fleet(robot_three)
 
-robot_fleet.display_robot_fleet()
+robot_fleet.display_robot_fleet
