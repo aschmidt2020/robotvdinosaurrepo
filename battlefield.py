@@ -4,8 +4,15 @@ class Battlefield:
         self.herd = dino_herd
     
     def run_game(self):
-        pass
+        self.display_welcome() #displaying welcome
+        
+        print('\nHere are your current players: ') #showing initial characters
+        self.show_dino_opponent_options()
+        self.show_robot_opponent_options()
     
+        print('\nThis begins the battle...') #starting game
+        self.battle()
+        
     def display_welcome(self):
         print('\nWelcome to Robots versus Dinosaurs!')
     
@@ -41,12 +48,12 @@ class Battlefield:
             elif len(self.herd.dino_list) == 0:
                 self.display_winners('Robot')
                
-    def dino_turn(self, dinosaur_attacking, robot_attacked):
+    def dino_turn(self, dinosaur_attacking, robot_attacked): #dino_attack from dinosaur.py
         dinosaur_attacking = self.herd.dino_list[dinosaur_attacking]
         robot_attacked = self.fleet.robot_list[robot_attacked]
         dinosaur_attacking.dino_attack(robot_attacked)
     
-    def robot_turn(self, robot_atttacking, dino_attacked):
+    def robot_turn(self, robot_atttacking, dino_attacked): #robot_attack from robot.py
         robot_atttacking = self.fleet.robot_list[robot_atttacking]
         dino_attacked = self.herd.dino_list[dino_attacked]
         robot_atttacking.robot_attack(dino_attacked)
