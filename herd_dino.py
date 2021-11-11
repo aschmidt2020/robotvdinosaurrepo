@@ -1,16 +1,25 @@
-from dinosaur import dino_list
+from dinosaur import Dinosaur
 
 class Herd:
-    def __init__(self, dino_list):
-        self.dino_list = dino_list
+    def __init__(self):
+        self.dino_list = [ ]
     
-    #def create_dino_herd(self, dino_list): - in UML do I need this step?
-        #self.dino_list = dino_list
+    def create_dino_herd(self, dinosaur):
+        self.dino_list.append(dinosaur)
     
     def display_dino_herd(self):
-        print('\n')
         for dino in self.dino_list:
             print (f'Dinosaur Name: {dino.dino_name}, Dinosaur Health: {dino.dino_health}')
 
-#creating herd
-dino_herd = Herd(dino_list)
+#instantiated three dinos and added to list
+dinosaur_one = Dinosaur('Dino One', 10)
+dinosaur_two = Dinosaur('Dino Two', 10)
+dinosaur_three = Dinosaur('Dino Three', 10)
+
+#creating dino fleet
+dino_herd = Herd()
+dino_herd.create_dino_herd(dinosaur_one)
+dino_herd.create_dino_herd(dinosaur_two)
+dino_herd.create_dino_herd(dinosaur_three)
+
+dino_herd.display_dino_herd()

@@ -1,16 +1,25 @@
-import robot
-from robot import robot_list #imported list from other file
+from robot import Robot
 
 class Fleet:
-    def __init__(self, robot_list):
-        self.robot_list = robot_list
+    def __init__(self):
+        self.robot_list = [ ]
         
-    #def create_robo_fleet(self, robot_list): - in UML has this step, do i need it?
-        #self.robot_list = robot_list
+    def create_robot_fleet(self, robot):
+        self.robot_list.append(robot)
         
-    def display_robo_fleet(self):
+    def display_robot_fleet(self):
         for robot in self.robot_list:
             print (f'Robot Name: {robot.robot_name}, Robot Health: {robot.robot_health}')
 
-#creating fleet
-robot_fleet = Fleet(robot_list)
+#instantiated three robots and added to list
+robot_one = Robot('Robot One', 'Basic Weapon One', 10)
+robot_two = Robot('Robot Two', 'Basic Weapon One', 10)
+robot_three = Robot('Robot Three', 'Basic Weapon One', 10)
+
+#creating robot fleet
+robot_fleet = Fleet()
+robot_fleet.create_robot_fleet(robot_one)
+robot_fleet.create_robot_fleet(robot_two)
+robot_fleet.create_robot_fleet(robot_three)
+
+robot_fleet.display_robot_fleet()
