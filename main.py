@@ -12,6 +12,5 @@ print('\nHere are your current players: ')
 battlefield_one.show_dino_opponent_options()
 battlefield_one.show_robot_opponent_options()
 
-#sample attack on robot and dinosaur
-battlefield_one.dino_turn(0, 0) #represents dino 1 and robot 1
-battlefield_one.robot_turn(1, 1) #represents robot 2 and dino 2
+#battle configuration
+battlefield_one.battle()
