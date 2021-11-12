@@ -20,11 +20,20 @@ class Battlefield:
         print('\nWelcome to Robots versus Dinosaurs!')
     
     def battle(self):
-        current_attacker_dinosaur = True #TODO placeholder, will change to user input later
+        current_attacker_dinosaur = input('Please select who you would like to go first (Dinosaurs or Robots): ')
+        if current_attacker_dinosaur == 'Dinosaurs':
+            current_attacker_dinosaur = True
+        elif current_attacker_dinosaur == 'Robots':
+            current_attacker_dinosaur = False
+        else:
+            current_attacker_dinosaur = input('Please select Dinosaurs or Robots: ')
+            
         while len(self.fleet.robot_list) > 0 and len(self.herd.dino_list) > 0:
             if current_attacker_dinosaur == True:
                 self.show_robot_opponent_options()
                 dinosaur_attacking = int(input('Please select index number of attacking dinosaur: '))
+                    #if self.herd.dino_list[dinosaur_attacking].dino_energy < self.herd.dino_list[dinosaur_attacking].attack_power
+                    #not needed because dinosaur energy is at even interval of attack power
                 robot_attacked = int(input('Please select index number of robot you would like to attack: '))
                 self.dino_turn(dinosaur_attacking, robot_attacked)
                 while self.fleet.robot_list[robot_attacked].robot_health > 0 and self.herd.dino_list[dinosaur_attacking].dino_energy >0:
