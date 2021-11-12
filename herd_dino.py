@@ -6,15 +6,15 @@ class Herd:
         self.create_dino_herd()
     
     def create_dino_herd(self,):
-        dinosaur_one = Dinosaur('Dino One', 10)
-        dinosaur_two = Dinosaur('Dino Two', 10)
-        dinosaur_three = Dinosaur('Dino Three', 10)
+        dinosaur_one = Dinosaur('Dino One')
+        dinosaur_two = Dinosaur('Dino Two')
+        dinosaur_three = Dinosaur('Dino Three')
         
         self.dino_list.append(dinosaur_one)
         self.dino_list.append(dinosaur_two)
         self.dino_list.append(dinosaur_three)
     
     def display_dino_herd(self):
-        print('This is the current dinosaur herd: ')
+        print('\nThis is the current dinosaur herd: ')
         for dino in self.dino_list:
-            print (f'{self.dino_list.index(dino)} Dinosaur Name: {dino.dino_name}, Dinosaur Health: {dino.dino_health}')
+            print (f'{self.dino_list.index(dino)} Name: {dino.dino_name}, Atk Pwr: {dino.attack_option.attack_power}, Hlth: {dino.dino_health}, Energy: {dino.dino_energy}')
