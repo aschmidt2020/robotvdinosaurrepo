@@ -9,4 +9,6 @@ class Robot:
     def robot_attack(self, dinosaur):
         dinosaur.dino_health -= self.robot_weapon.attack_power
         print(f'\nAttacking {dinosaur.dino_name}...')
-        print(f'You have successfully attacked {dinosaur.dino_name}. Their new health level is: {dinosaur.dino_health}.')
+        print(f'You have successfully attacked {dinosaur.dino_name}. Their new health level is: {dinosaur.dino_health}.') 
+        
+    #additional method to modify default
