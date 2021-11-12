@@ -17,6 +17,7 @@ class Battlefield:
         
     def display_welcome(self):
         print('\n***********Welcome to Robots versus Dinosaurs!***********')
+        print('This game is best played with two players.')
         print('In this game robots and dinosaurs will battle. There will be 3 robots and 3 dinosaurs.')
         print('Dinosaurs have an energy level of 50, and a health of 30.')
         print('You will choose an attack option for the dinosaur. Each attack option has a certain power.')
@@ -79,7 +80,7 @@ class Battlefield:
                 if self.fleet.robot_list[robot_attacking].robot_power <= 0:
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacking])
                     
-            #TODO current_attacker_dinosaur = not current_attacker_dinosaur
+            current_attacker_dinosaur = not current_attacker_dinosaur
          
         if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0:
             if len(self.fleet.robot_list) == 0:
