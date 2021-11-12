@@ -48,7 +48,7 @@ class Battlefield:
                     dinosaur_attacking = int(input('\nPlease select a dinosaur from current players: '))
                                                                 
                 while robot_attacked > len(self.fleet.robot_list) - 1: 
-                    robot_attacked = int(input('\nPlease select a different robot to attack: '))
+                    robot_attacked = int(input('\nPlease select a robot to attack from current players: '))
                                 
                 self.dino_turn(dinosaur_attacking, robot_attacked) #attack sequence
                 
@@ -70,7 +70,7 @@ class Battlefield:
                     robot_attacking = int(input('Please select robot from current players: '))
             
                 while dino_attacked > len(self.herd.dino_list) - 1: 
-                    dino_attacked = int(input('Please select a different dinosaur to attack: '))
+                    dino_attacked = int(input('Please select a dinosaur to attack from current players: '))
                 
                 self.robot_turn(robot_attacking, dino_attacked)
                 
@@ -84,8 +84,10 @@ class Battlefield:
          
         if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0: #displays winners depending on which list is empty
             if len(self.fleet.robot_list) == 0:
+                print('All players from the robot fleet have been removed.')
                 self.display_winners('Dinosaur')
             elif len(self.herd.dino_list) == 0:
+                print('All players from the dinosaur herd have been removed.')
                 self.display_winners('Robot')
                
     def dino_turn(self, dinosaur_attacking, robot_attacked): #dino attack sequence
@@ -105,4 +107,4 @@ class Battlefield:
         self.fleet.display_robot_fleet()
     
     def display_winners(self, winning_team):
-        print(f'\nThe {winning_team} team has won the game.')
+        print(f'\nThe {winning_team} team has won the game.\n')
