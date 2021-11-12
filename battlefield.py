@@ -46,15 +46,15 @@ class Battlefield:
             elif current_attacker_dinosaur == False:
                 self.show_dino_opponent_options()
                 robot_attacking = int(input('Please select index number of attacking robot: '))
-                if self.fleet.robot_list[robot_attacking].robot_energy < self.fleet.robot_list[robot_attacking].robot_weapon.energy_needed:
+                if self.fleet.robot_list[robot_attacking].robot_power < self.fleet.robot_list[robot_attacking].robot_weapon.energy_needed:
                     robot_attacking = int(input('Please select robot with adequate energy level: '))
                 dino_attacked = int(input('Please select index number of dinosaur you would like to attack: '))
                 self.robot_turn(robot_attacking, dino_attacked)
-                while self.herd.dino_list[dino_attacked].dino_health > 0 and self.fleet.robot_list[robot_attacking].robot_energy >= 0:
+                while self.herd.dino_list[dino_attacked].dino_health > 0 and self.fleet.robot_list[robot_attacking].robot_power >= 0:
                     break
                 if self.herd.dino_list[dino_attacked].dino_health <= 0:
                     self.herd.dino_list.remove(self.herd.dino_list[dino_attacked])
-                if self.fleet.robot_list[robot_attacking].robot_energy <= 0:
+                if self.fleet.robot_list[robot_attacking].robot_power <= 0:
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacking])
                     
             current_attacker_dinosaur = not current_attacker_dinosaur

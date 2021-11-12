@@ -4,17 +4,17 @@ class Robot:
     def __init__(self, robot_name):
         self.robot_name = robot_name
         self.robot_health = 30 #TODO currently set to 30 for quick testing purposes
-        self.robot_energy = 50
+        self.robot_power = 50
         print(f'{self.robot_name}, please select a weapon: ')
         self.robot_weapon = Weapon('Basic Weapon', 10, 10)
         self.select_weapon()
         
     def robot_attack(self, dinosaur):
         dinosaur.dino_health -= self.robot_weapon.attack_power
-        self.robot_energy -= self.robot_weapon.energy_needed
+        self.robot_power -= self.robot_weapon.energy_needed
         print(f'\nAttacking {dinosaur.dino_name}...')
         print(f'You have successfully attacked {dinosaur.dino_name}. Their new health level is: {dinosaur.dino_health}.')
-        print(f'{self.robot_name}, your new energy level is: {self.robot_energy}.\n')
+        print(f'{self.robot_name}, your new power level is: {self.robot_power}.\n')
     
     def select_weapon(self):
         weapon_list = [ ]
