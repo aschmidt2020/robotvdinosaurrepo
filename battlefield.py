@@ -27,22 +27,27 @@ class Battlefield:
                 dinosaur_attacking = int(input('Please select index number of attacking dinosaur: '))
                 robot_attacked = int(input('Please select index number of robot you would like to attack: '))
                 self.dino_turn(dinosaur_attacking, robot_attacked)
-                while self.fleet.robot_list[robot_attacked].robot_health > 0:
+                while self.fleet.robot_list[robot_attacked].robot_health > 0 and self.herd.dino_list[dinosaur_attacking].dino_energy >0:
                     break
-                else:
+                if self.fleet.robot_list[robot_attacked].robot_health <= 0:
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacked])
+                elif self.herd.dino_list[dinosaur_attacking].dino_energy <= 0:
+                    self.herd.dino_list.remove(self.herd.dino_list[dinosaur_attacking])
                            
             elif current_attacker_dinosaur == False:
                 self.show_dino_opponent_options()
                 robot_attacking = int(input('Please select index number of attacking robot: '))
+                if self.fleet.robot_list[robot_attacking].robot_energy < self.fleet.robot_list[robot_attacking].robot_weapon.energy_needed:
+                    robot_attacking = int(input('Please select robot with adequate energy level: '))
                 dino_attacked = int(input('Please select index number of dinosaur you would like to attack: '))
                 self.robot_turn(robot_attacking, dino_attacked)
-                while self.herd.dino_list[dino_attacked].dino_health > 0:
+                while self.herd.dino_list[dino_attacked].dino_health > 0 and self.fleet.robot_list[robot_attacking].robot_energy >= 0:
                     break
-                else:
+                if self.herd.dino_list[dino_attacked].dino_health <= 0:
                     self.herd.dino_list.remove(self.herd.dino_list[dino_attacked])
-                
-           
+                if self.fleet.robot_list[robot_attacking].robot_energy <= 0:
+                    self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacking])
+                    
             current_attacker_dinosaur = not current_attacker_dinosaur
          
         if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0:
