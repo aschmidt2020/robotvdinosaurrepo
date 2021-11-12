@@ -42,8 +42,8 @@ class Battlefield:
                 else:
                     self.herd.dino_list.remove(self.herd.dino_list[dino_attacked])
                 
-            #TODO currently blocked as comment for testing purposes
-            #TODO current_attacker_dinosaur = not current_attacker_dinosaur
+           
+            current_attacker_dinosaur = not current_attacker_dinosaur
          
         if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0:
             if len(self.fleet.robot_list) == 0:

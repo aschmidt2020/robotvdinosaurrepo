@@ -6,13 +6,14 @@ class Fleet:
         self.create_robot_fleet()
         
     def create_robot_fleet(self):
-        robot_one = Robot('Robot One', 'Basic Weapon One', 10)
-        robot_two = Robot('Robot Two', 'Basic Weapon One', 10)
-        robot_three = Robot('Robot Three', 'Basic Weapon One', 10)
+        robot_one = Robot('Robot One') 
+        robot_two = Robot('Robot Two')
+        robot_three = Robot('Robot Three')
         
         self.robot_list.append(robot_one)
         self.robot_list.append(robot_two)
         self.robot_list.append(robot_three)
+        
         
     def display_robot_fleet(self):
         print('This is the current robot fleet: ')
