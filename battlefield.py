@@ -3,28 +3,29 @@ from herd_dino import Herd
 
 class Battlefield:
     def __init__(self):
-        self.display_welcome() #displaying welcome moved to under __init__ so that it will always present first
+        self.display_welcome() #displaying welcome moved to under init so that it will always present first
         self.fleet = Fleet()
         self.herd = Herd()
     
     def run_game(self):
-        
-        print('\nHere are your current players: ') #showing initial characters
+        print('\n***********Current Players List***********') #showing initial characters
         self.show_dino_opponent_options()
         self.show_robot_opponent_options()
     
-        print('\nThis begins the battle...') #starting game
+        print('\n***********This begins the battle...***********')
         self.battle()
         
     def display_welcome(self):
-        print('\nWelcome to Robots versus Dinosaurs!')
-        print('In this game robots and dinosaurs will battle. There will be 3 robots and 3 dinosaurs.'
-              'Dinosaurs have an energy level of 50, and a health of 30.'
-              'You will choose an attack options for the dinosaur. Each attack option has a certain power. The dinosaur will need to have adequate dinosaur energy for the power level.'
-              'Robots start with a health of 30 and a power level(energy level) of 50.'
-              'For robots, you will get to choose a weapon. This weapon has a certain attack power and energy level needed to use the weapon.'
-              "You will start the game by choosing each robot's weapon and choosing who will start, Dinosaurs or Robots." 
-              "Let's begin by selecting robot weapons!") #TODO read through introduction to ensure correct #s
+        print('\n***********Welcome to Robots versus Dinosaurs!***********')
+        print('In this game robots and dinosaurs will battle. There will be 3 robots and 3 dinosaurs.')
+        print('Dinosaurs have an energy level of 50, and a health of 30.')
+        print('You will choose an attack option for the dinosaur. Each attack option has a certain power.')
+        print('Robots start with a health of 30 and a power level (energy level) of 50.')
+        print('For robots, you will get to choose a weapon. This weapon has a certain attack power and energy level needed to use the weapon.')
+        print('If you have less energy or power than you need for your attack, you may attack one more time to deplete this energy.')
+        print('Example: Energy = 10, Attack Energy Needed = 20. You may still attack with this player, but it will result in the attacking player being removed.')
+        print("You will start the game by choosing each robot's weapon and choosing who will start, Dinosaurs or Robots.")
+        print("Let's begin by selecting robot weapons!")
     
     def battle(self):
         current_attacker_dinosaur = int(input('Please select who you would like to go first (0 - Dinosaurs or 1 - Robots): '))
@@ -32,8 +33,7 @@ class Battlefield:
             current_attacker_dinosaur = True
         elif current_attacker_dinosaur == 1:
             current_attacker_dinosaur = False
-        
-            
+                    
         while len(self.fleet.robot_list) > 0 and len(self.herd.dino_list) > 0:
             if current_attacker_dinosaur == True:
                 print('\n***********DINOSAURS ATTACKING***********')
@@ -45,18 +45,16 @@ class Battlefield:
                 
                 while dinosaur_attacking > len(self.herd.dino_list) - 1: #prevents from choosing player that is not available
                     dinosaur_attacking = int(input('\nPlease select a dinosaur from current players: '))
-                    
-                while self.herd.dino_list[dinosaur_attacking].dino_energy < self.herd.dino_list[dinosaur_attacking].attack_option.attack_power: #prevents from playing w/too low energy level
-                    dinosaur_attacking = int(input('\nPlease select a dinosaur with adequate energy level: '))
                                                                 
                 while robot_attacked > len(self.fleet.robot_list) - 1: #prevents from choosing player that is not available
                     robot_attacked = int(input('\nPlease select a different robot to attack: '))
                                 
                 self.dino_turn(dinosaur_attacking, robot_attacked)
                 
-                if self.fleet.robot_list[robot_attacked].robot_health <= 0:
+                if self.fleet.robot_list[robot_attacked].robot_health <= 0: #results in 0 health or less than 0 health being removed from list
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacked])
-                elif self.herd.dino_list[dinosaur_attacking].dino_energy <= 0:
+                    
+                if self.herd.dino_list[dinosaur_attacking].dino_energy <= 0: #results in 0 energy or less than 0 energy being removed from list
                     self.herd.dino_list.remove(self.herd.dino_list[dinosaur_attacking])
                            
             elif current_attacker_dinosaur == False:
@@ -69,9 +67,6 @@ class Battlefield:
                 
                 while robot_attacking > len(self.fleet.robot_list) - 1:
                     robot_attacking = int(input('Please select robot from current players: '))
-                    
-                while self.fleet.robot_list[robot_attacking].robot_power < self.fleet.robot_list[robot_attacking].robot_weapon.energy_needed:
-                    robot_attacking = int(input('Please select robot with adequate energy level: '))
             
                 while dino_attacked > len(self.herd.dino_list) - 1: 
                     dino_attacked = int(input('Please select a different dinosaur to attack: '))
@@ -81,7 +76,7 @@ class Battlefield:
                 if self.herd.dino_list[dino_attacked].dino_health <= 0:
                     self.herd.dino_list.remove(self.herd.dino_list[dino_attacked])
                     
-                elif self.fleet.robot_list[robot_attacking].robot_power <= 0:
+                if self.fleet.robot_list[robot_attacking].robot_power <= 0:
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacking])
                     
             #TODO current_attacker_dinosaur = not current_attacker_dinosaur

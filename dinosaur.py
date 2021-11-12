@@ -3,7 +3,7 @@ from attack_option_dino import DinoAttack
 class Dinosaur:
     def __init__(self, dino_name):
         self.dino_name = dino_name
-        self.dino_health = 30  #TODO currently set to 30 for quick testing purposes
+        self.dino_health = 30
         self.dino_energy = 50
         print(f'\n{self.dino_name}, please select a attack option: ')
         self.attack_option = DinoAttack('Basic Attack', 10)
@@ -27,6 +27,5 @@ class Dinosaur:
             print(f'{attack_tuple.index(attack)} Attack Name: {attack.attack_name}, Attack Power: {attack.attack_power}')
         
         selected_attack = attack_tuple[int(input('Please input index number of desired weapon: '))]
-        print('\n')
         
         self.attack_option = selected_attack

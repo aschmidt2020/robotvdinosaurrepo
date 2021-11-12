@@ -3,7 +3,7 @@ from weapon import Weapon
 class Robot:
     def __init__(self, robot_name):
         self.robot_name = robot_name
-        self.robot_health = 30 #TODO currently set to 30 for quick testing purposes
+        self.robot_health = 30
         self.robot_power = 50
         print(f'\n{self.robot_name}, please select a weapon: ')
         self.robot_weapon = Weapon('Basic Weapon', 10, 10)
@@ -31,7 +31,6 @@ class Robot:
             print(f'{weapon_list.index(weapon)} Weapon Name: {weapon.weapon_name}, Attack Power: {weapon.attack_power}, Energy Needed: {weapon.energy_needed}')
         
         selected_weapon = weapon_list[int(input('Please input index number of desired weapon: '))]
-        print('\n')
         
         self.robot_weapon = selected_weapon
         
