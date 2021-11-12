@@ -5,7 +5,7 @@ class Herd:
         self.dino_list = [ ]
         self.create_dino_herd()
     
-    def create_dino_herd(self,):
+    def create_dino_herd(self,): #instantiates three dinosaurs
         dinosaur_one = Dinosaur('Dino One')
         dinosaur_two = Dinosaur('Dino Two')
         dinosaur_three = Dinosaur('Dino Three')

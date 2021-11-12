@@ -5,7 +5,7 @@ class Fleet:
         self.robot_list = [ ]
         self.create_robot_fleet()
         
-    def create_robot_fleet(self):
+    def create_robot_fleet(self): #instantiates three robots
         robot_one = Robot('Robot One') 
         robot_two = Robot('Robot Two')
         robot_three = Robot('Robot Three')

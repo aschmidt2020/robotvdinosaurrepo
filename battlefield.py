@@ -29,16 +29,16 @@ class Battlefield:
         print("Let's begin by selecting robot weapons!")
     
     def battle(self):
-        current_attacker_dinosaur = int(input('Please select who you would like to go first (0 - Dinosaurs or 1 - Robots): '))
+        current_attacker_dinosaur = int(input('Please select who you would like to go first (0 - Dinosaurs or 1 - Robots): ')) #decides who will start game
         if current_attacker_dinosaur == 0:
             current_attacker_dinosaur = True
         elif current_attacker_dinosaur == 1:
             current_attacker_dinosaur = False
                     
-        while len(self.fleet.robot_list) > 0 and len(self.herd.dino_list) > 0:
+        while len(self.fleet.robot_list) > 0 and len(self.herd.dino_list) > 0: #while loop for while both teams have players
             if current_attacker_dinosaur == True:
                 print('\n***********DINOSAURS ATTACKING***********')
-                self.show_dino_opponent_options()
+                self.show_dino_opponent_options() #displays team for user to choose from (below)
                 self.show_robot_opponent_options()
                 
                 dinosaur_attacking = int(input('\nPlease select index number of attacking dinosaur: '))
@@ -47,10 +47,10 @@ class Battlefield:
                 while dinosaur_attacking > len(self.herd.dino_list) - 1: #prevents from choosing player that is not available
                     dinosaur_attacking = int(input('\nPlease select a dinosaur from current players: '))
                                                                 
-                while robot_attacked > len(self.fleet.robot_list) - 1: #prevents from choosing player that is not available
+                while robot_attacked > len(self.fleet.robot_list) - 1: 
                     robot_attacked = int(input('\nPlease select a different robot to attack: '))
                                 
-                self.dino_turn(dinosaur_attacking, robot_attacked)
+                self.dino_turn(dinosaur_attacking, robot_attacked) #attack sequence
                 
                 if self.fleet.robot_list[robot_attacked].robot_health <= 0: #results in 0 health or less than 0 health being removed from list
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacked])
@@ -58,8 +58,8 @@ class Battlefield:
                 if self.herd.dino_list[dinosaur_attacking].dino_energy <= 0: #results in 0 energy or less than 0 energy being removed from list
                     self.herd.dino_list.remove(self.herd.dino_list[dinosaur_attacking])
                            
-            elif current_attacker_dinosaur == False:
-                print('\n***********Robots attacking***********')
+            elif current_attacker_dinosaur == False: #see comments from if statement above
+                print('\n***********ROBOTS ATTACKING***********')
                 self.show_robot_opponent_options()
                 self.show_dino_opponent_options()
                 
@@ -80,20 +80,20 @@ class Battlefield:
                 if self.fleet.robot_list[robot_attacking].robot_power <= 0:
                     self.fleet.robot_list.remove(self.fleet.robot_list[robot_attacking])
                     
-            current_attacker_dinosaur = not current_attacker_dinosaur
+            current_attacker_dinosaur = not current_attacker_dinosaur #will change next move to be the opposite team of who went
          
-        if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0:
+        if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0: #displays winners depending on which list is empty
             if len(self.fleet.robot_list) == 0:
                 self.display_winners('Dinosaur')
             elif len(self.herd.dino_list) == 0:
                 self.display_winners('Robot')
                
-    def dino_turn(self, dinosaur_attacking, robot_attacked): #dino_attack from dinosaur.py
+    def dino_turn(self, dinosaur_attacking, robot_attacked): #dino attack sequence
         dinosaur_attacking = self.herd.dino_list[dinosaur_attacking]
         robot_attacked = self.fleet.robot_list[robot_attacked]
         dinosaur_attacking.dino_attack(robot_attacked)
     
-    def robot_turn(self, robot_atttacking, dino_attacked): #robot_attack from robot.py
+    def robot_turn(self, robot_atttacking, dino_attacked): #robot attack sequence
         robot_atttacking = self.fleet.robot_list[robot_atttacking]
         dino_attacked = self.herd.dino_list[dino_attacked]
         robot_atttacking.robot_attack(dino_attacked)
