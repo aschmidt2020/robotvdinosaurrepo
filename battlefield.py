@@ -83,7 +83,9 @@ class Battlefield:
             current_attacker_dinosaur = not current_attacker_dinosaur #will change next move to be the opposite team of who went
          
         if len(self.fleet.robot_list) == 0 or len(self.herd.dino_list) == 0: #displays winners depending on which list is empty
-            if len(self.fleet.robot_list) == 0:
+            if len(self.fleet.robot_list) == 0 and len(self.herd.dino_list) == 0:
+                print('Both the robot team and dinosaur team have been eliminated. Tied game. Please play again.')
+            elif len(self.fleet.robot_list) == 0:
                 print('All players from the robot fleet have been removed.')
                 self.display_winners('Dinosaur')
             elif len(self.herd.dino_list) == 0:

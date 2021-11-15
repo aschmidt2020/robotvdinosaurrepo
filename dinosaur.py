@@ -24,7 +24,7 @@ class Dinosaur:
         attack_tuple = (attack_one, attack_two, attack_three)
         
         for attack in attack_tuple: #displays attack options
-            print(f'{attack_tuple.index(attack)} Attack Name: {attack.attack_name}, Attack Power: {attack.attack_power}')
+            print(f'{attack_tuple.index(attack)} - Attack Name: {attack.attack_name}, Attack Power: {attack.attack_power}')
         
         selected_attack = attack_tuple[int(input('Please input index number of desired weapon: '))]
         

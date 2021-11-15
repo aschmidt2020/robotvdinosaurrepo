@@ -18,4 +18,4 @@ class Fleet:
     def display_robot_fleet(self):
         print('\nThis is the current robot fleet: ')
         for robot in self.robot_list:
-            print (f'{self.robot_list.index(robot)} Name: {robot.robot_name}, Wpn Atk Pwr: {robot.robot_weapon.attack_power}, Hlth: {robot.robot_health}, Pwr Lvl: {robot.robot_power}')
+            print (f'{self.robot_list.index(robot)} - Name: {robot.robot_name}, Wpn Atk Pwr: {robot.robot_weapon.attack_power}, Hlth: {robot.robot_health}, Pwr Lvl: {robot.robot_power}')

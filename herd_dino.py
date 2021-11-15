@@ -17,4 +17,4 @@ class Herd:
     def display_dino_herd(self):
         print('\nThis is the current dinosaur herd: ')
         for dino in self.dino_list:
-            print (f'{self.dino_list.index(dino)} Name: {dino.dino_name}, Atk Pwr: {dino.attack_option.attack_power}, Hlth: {dino.dino_health}, Energy: {dino.dino_energy}')
+            print (f'{self.dino_list.index(dino)} - Name: {dino.dino_name}, Atk Pwr: {dino.attack_option.attack_power}, Hlth: {dino.dino_health}, Energy: {dino.dino_energy}')

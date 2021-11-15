@@ -20,15 +20,15 @@ class Robot:
         weapon_list = [ ]
         
         weapon_one = Weapon('Basic Weapon', 10, 10)
-        weapon_two = Weapon('Advanced Weapon', 15, 20)
-        weapon_three = Weapon('Sneaky Weapon', 20, 25)
+        weapon_two = Weapon('Advanced Weapon', 15, 15)
+        weapon_three = Weapon('Sneaky Weapon', 20, 20)
         
         weapon_list.append(weapon_one)
         weapon_list.append(weapon_two)
         weapon_list.append(weapon_three)
         
         for weapon in weapon_list: #displays weapon options
-            print(f'{weapon_list.index(weapon)} Weapon Name: {weapon.weapon_name}, Attack Power: {weapon.attack_power}, Energy Needed: {weapon.energy_needed}')
+            print(f'{weapon_list.index(weapon)} - Weapon Name: {weapon.weapon_name}, Attack Power: {weapon.attack_power}, Energy Needed: {weapon.energy_needed}')
         
         selected_weapon = weapon_list[int(input('Please input index number of desired weapon: '))]
         
